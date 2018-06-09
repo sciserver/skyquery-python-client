@@ -1,0 +1,1461 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": null,
+    "title": null
+  },
+  "host": "localhost",
+  "basePath": "/dobos/skyquery-v1.4/Api/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "V1/Schema.svc/datasets": {
+      "get": {
+        "summary": "Returns a list of all available datasets.",
+        "operationId": "ListDatasets",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DatasetListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}": {
+      "get": {
+        "summary": "Returns information about a single dataset",
+        "operationId": "GetDataset",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Dataset"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/tables": {
+      "get": {
+        "summary": "Returns a list of the tables of a dataset.",
+        "operationId": "ListTables",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/TableListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/tables/{tableName}": {
+      "get": {
+        "summary": "Returns information about a single table.",
+        "operationId": "GetTable",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Table"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/tables/{tableName}/columns": {
+      "get": {
+        "summary": "Returns the list of columns of a table",
+        "operationId": "ListTableColumns",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ColumnListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/views": {
+      "get": {
+        "summary": "Returns a list of the views of a dataset.",
+        "operationId": "ListViews",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ViewListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/views/{viewName}": {
+      "get": {
+        "summary": "Returns information about a single view.",
+        "operationId": "GetView",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "viewName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/View"
+            }
+          }
+        }
+      }
+    },
+    "V1/Schema.svc/datasets/{datasetName}/views/{viewName}/columns": {
+      "get": {
+        "summary": "Returns the list of columns of a view",
+        "operationId": "ListViewColumns",
+        "tags": [
+          "Schema"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "viewName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ColumnListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Jobs.svc/queues": {
+      "get": {
+        "summary": "Returns a list of all available job queues.",
+        "operationId": "ListQueues",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/QueueListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Jobs.svc/queues/{queue}": {
+      "get": {
+        "summary": "Returns information about a job queue.",
+        "operationId": "GetQueue",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "queue",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/QueueResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Jobs.svc/queues/{queue}/jobs": {
+      "get": {
+        "summary": "Lists the jobs in the queue in descending order by submission time. Only jobs of the authenticated user are listed.",
+        "operationId": "ListJobs",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "queue",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": null,
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": null,
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "max",
+            "in": "query",
+            "description": null,
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JobListResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Submits a new job of any kind.",
+        "operationId": "SubmitJob",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "queue",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "job",
+            "in": "body",
+            "description": null,
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/JobRequest"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JobResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Jobs.svc/jobs/{guid}": {
+      "get": {
+        "summary": "Returns a single job.",
+        "operationId": "GetJob",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "guid",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JobResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Cancels a single job.",
+        "operationId": "CancelJob",
+        "tags": [
+          "Jobs"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "guid",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/JobResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Data.svc/{datasetName}/{tableName}": {
+      "get": {
+        "summary": "Downloads a table in any supported data format.",
+        "operationId": "DownloadTable",
+        "tags": [
+          "Data"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "top",
+            "in": "query",
+            "description": null,
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Uploads a table to a user database.",
+        "operationId": "UploadTable",
+        "tags": [
+          "Data"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Drops a table from the user database.",
+        "operationId": "DropTable",
+        "tags": [
+          "Data"
+        ],
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "datasetName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "tableName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Dataset": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "isMutable": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "DatasetListResponse": {
+      "properties": {
+        "datasets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Dataset"
+          }
+        }
+      }
+    },
+    "Column": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "dataType": {
+          "type": "string",
+          "format": "string"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "class": {
+          "type": "string",
+          "format": "string"
+        },
+        "quantity": {
+          "type": "string",
+          "format": "string"
+        },
+        "unit": {
+          "type": "string",
+          "format": "string"
+        },
+        "summary": {
+          "type": "string",
+          "format": "string"
+        },
+        "remarks": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "Table": {
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Column"
+          }
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "summary": {
+          "type": "string",
+          "format": "string"
+        },
+        "remarks": {
+          "type": "string",
+          "format": "string"
+        },
+        "example": {
+          "type": "string",
+          "format": "string"
+        },
+        "class": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "TableListResponse": {
+      "properties": {
+        "tables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Table"
+          }
+        }
+      }
+    },
+    "ColumnListResponse": {
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Column"
+          }
+        }
+      }
+    },
+    "View": {
+      "properties": {
+        "columns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Column"
+          }
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "summary": {
+          "type": "string",
+          "format": "string"
+        },
+        "remarks": {
+          "type": "string",
+          "format": "string"
+        },
+        "example": {
+          "type": "string",
+          "format": "string"
+        },
+        "class": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "ViewListResponse": {
+      "properties": {
+        "views": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/View"
+          }
+        }
+      }
+    },
+    "RestError": {
+      "properties": {
+        "Type": {
+          "type": "string",
+          "format": "string"
+        },
+        "Message": {
+          "type": "string",
+          "format": "string"
+        },
+        "StackTrace": {
+          "type": "string",
+          "format": "string"
+        },
+        "LogEventID": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "Queue": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "pendingJobCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "QueueListResponse": {
+      "properties": {
+        "queues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Queue"
+          }
+        }
+      }
+    },
+    "QueueResponse": {
+      "properties": {
+        "queue": {
+          "$ref": "#/definitions/Queue"
+        }
+      }
+    },
+    "JobDependency": {
+      "properties": {
+        "predecessorJob": {
+          "type": "string",
+          "format": "string"
+        },
+        "condition": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "QueryJob": {
+      "properties": {
+        "query": {
+          "type": "string",
+          "format": "string"
+        },
+        "output": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "string"
+          }
+        },
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "Headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "string"
+      }
+    },
+    "Credentials": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "format": "string"
+        },
+        "password": {
+          "type": "string",
+          "format": "string"
+        },
+        "headers": {
+          "$ref": "#/definitions/Headers"
+        }
+      }
+    },
+    "FileFormat": {
+      "properties": {
+        "mimeType": {
+          "type": "string",
+          "format": "string"
+        },
+        "generateIdentityColumn": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "SourceTable": {
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "format": "string"
+        },
+        "table": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "ExportJob": {
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "string"
+        },
+        "credentials": {
+          "$ref": "#/definitions/Credentials"
+        },
+        "fileFormat": {
+          "$ref": "#/definitions/FileFormat"
+        },
+        "source": {
+          "$ref": "#/definitions/SourceTable"
+        },
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "DestinationTable": {
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "format": "string"
+        },
+        "table": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "ImportJob": {
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "string"
+        },
+        "credentials": {
+          "$ref": "#/definitions/Credentials"
+        },
+        "fileFormat": {
+          "$ref": "#/definitions/FileFormat"
+        },
+        "destination": {
+          "$ref": "#/definitions/DestinationTable"
+        },
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "CopyJob": {
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/SourceTable"
+        },
+        "destination": {
+          "$ref": "#/definitions/DestinationTable"
+        },
+        "move": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "SqlScriptJob": {
+      "properties": {
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "Job": {
+      "properties": {
+        "guid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "status": {
+          "type": "string",
+          "format": "string"
+        },
+        "canCancel": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "hasError": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "queue": {
+          "type": "string",
+          "format": "string"
+        },
+        "comments": {
+          "type": "string",
+          "format": "string"
+        },
+        "error": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateStarted": {
+          "type": "string",
+          "format": "string"
+        },
+        "dateFinished": {
+          "type": "string",
+          "format": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobDependency"
+          }
+        }
+      }
+    },
+    "JobResponse": {
+      "properties": {
+        "queryJob": {
+          "$ref": "#/definitions/QueryJob"
+        },
+        "exportJob": {
+          "$ref": "#/definitions/ExportJob"
+        },
+        "importJob": {
+          "$ref": "#/definitions/ImportJob"
+        },
+        "copyJob": {
+          "$ref": "#/definitions/CopyJob"
+        },
+        "sqlScriptJob": {
+          "$ref": "#/definitions/SqlScriptJob"
+        },
+        "job": {
+          "$ref": "#/definitions/Job"
+        }
+      }
+    },
+    "JobListResponse": {
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JobResponse"
+          }
+        }
+      }
+    },
+    "JobRequest": {
+      "properties": {
+        "queryJob": {
+          "$ref": "#/definitions/QueryJob"
+        },
+        "exportJob": {
+          "$ref": "#/definitions/ExportJob"
+        },
+        "importJob": {
+          "$ref": "#/definitions/ImportJob"
+        },
+        "copyJob": {
+          "$ref": "#/definitions/CopyJob"
+        },
+        "sqlScriptJob": {
+          "$ref": "#/definitions/SqlScriptJob"
+        }
+      }
+    }
+  }
+}
