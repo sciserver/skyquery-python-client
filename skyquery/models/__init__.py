@@ -15,6 +15,7 @@
 from __future__ import absolute_import
 
 # import models into model package
+from skyquery.models.auth_request import AuthRequest
 from skyquery.models.column import Column
 from skyquery.models.column_list_response import ColumnListResponse
 from skyquery.models.copy_job import CopyJob
@@ -40,5 +41,13 @@ from skyquery.models.source_table import SourceTable
 from skyquery.models.sql_script_job import SqlScriptJob
 from skyquery.models.table import Table
 from skyquery.models.table_list_response import TableListResponse
+from skyquery.models.user import User
+from skyquery.models.user_group import UserGroup
+from skyquery.models.user_group_list_response import UserGroupListResponse
+from skyquery.models.user_group_response import UserGroupResponse
+from skyquery.models.user_membership import UserMembership
+from skyquery.models.user_membership_list_response import UserMembershipListResponse
+from skyquery.models.user_membership_response import UserMembershipResponse
+from skyquery.models.user_response import UserResponse
 from skyquery.models.view import View
 from skyquery.models.view_list_response import ViewListResponse

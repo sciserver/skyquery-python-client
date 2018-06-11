@@ -30,7 +30,9 @@ class TestSchemaApi(unittest.TestCase):
         self.configuration.host = "http://localhost/dobos/skyquery-v1.4/Api/"
         self.configuration.proxy = 'http://localhost:8888'
         self.ssclient = SciServerClient(configuration=self.configuration)
-        self.api = skyquery.api.schema_api.SchemaApi(self.ssclient)  # noqa: E501
+        self.auth = skyquery.api.auth_api.AuthApi(self.ssclient)
+        self.auth.authenticate({"auth": {"username": "test", "password": "almafa"}})
+        self.api = skyquery.api.schema_api.SchemaApi(self.ssclient)
 
     def tearDown(self):
         pass
@@ -40,7 +42,9 @@ class TestSchemaApi(unittest.TestCase):
 
         Returns information about a single dataset  # noqa: E501
         """
-        pass
+        res = self.api.get_dataset('MYDB')
+        self.assertTrue(res.is_mutable)
+        
 
     def test_get_table(self):
         """Test case for get_table
@@ -61,7 +65,8 @@ class TestSchemaApi(unittest.TestCase):
 
         Returns a list of all available datasets.  # noqa: E501
         """
-        pass
+        res = self.api.list_datasets()
+        self.assertTrue(len(res.datasets) > 0)
 
     def test_list_table_columns(self):
         """Test case for list_table_columns
@@ -75,7 +80,9 @@ class TestSchemaApi(unittest.TestCase):
 
         Returns a list of the tables of a dataset.  # noqa: E501
         """
-        pass
+        res = self.api.list_tables("MYDB")
+        self.assertTrue(len(res.tables) > 0)
+
 
     def test_list_view_columns(self):
         """Test case for list_view_columns

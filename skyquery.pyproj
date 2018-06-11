@@ -64,19 +64,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="docs\" />
+    <Folder Include="examples\" />
     <Folder Include="skyquery\" />
     <Folder Include="skyquery\api\" />
     <Folder Include="skyquery\models\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="examples\schema.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="setup.py" />
+    <Compile Include="skyquery\api\auth_api.py" />
     <Compile Include="skyquery\api\data_api.py" />
     <Compile Include="skyquery\api\jobs_api.py" />
     <Compile Include="skyquery\api\schema_api.py" />
     <Compile Include="skyquery\api\__init__.py" />
     <Compile Include="skyquery\api_client.py" />
     <Compile Include="skyquery\configuration.py" />
+    <Compile Include="skyquery\models\auth_request.py" />
     <Compile Include="skyquery\models\column.py" />
     <Compile Include="skyquery\models\column_list_response.py" />
     <Compile Include="skyquery\models\copy_job.py" />
@@ -102,41 +108,22 @@
     <Compile Include="skyquery\models\sql_script_job.py" />
     <Compile Include="skyquery\models\table.py" />
     <Compile Include="skyquery\models\table_list_response.py" />
+    <Compile Include="skyquery\models\user.py" />
+    <Compile Include="skyquery\models\user_group.py" />
+    <Compile Include="skyquery\models\user_group_list_response.py" />
+    <Compile Include="skyquery\models\user_group_response.py" />
+    <Compile Include="skyquery\models\user_membership.py" />
+    <Compile Include="skyquery\models\user_membership_list_response.py" />
+    <Compile Include="skyquery\models\user_membership_response.py" />
+    <Compile Include="skyquery\models\user_response.py" />
     <Compile Include="skyquery\models\view.py" />
     <Compile Include="skyquery\models\view_list_response.py" />
     <Compile Include="skyquery\models\__init__.py" />
     <Compile Include="skyquery\rest.py" />
+    <Compile Include="skyquery\sciserver_client.py" />
     <Compile Include="skyquery\__init__.py" />
-    <Compile Include="test\test_column.py" />
-    <Compile Include="test\test_column_list_response.py" />
-    <Compile Include="test\test_copy_job.py" />
-    <Compile Include="test\test_credentials.py" />
-    <Compile Include="test\test_dataset.py" />
-    <Compile Include="test\test_dataset_list_response.py" />
-    <Compile Include="test\test_data_api.py" />
-    <Compile Include="test\test_destination_table.py" />
-    <Compile Include="test\test_export_job.py" />
-    <Compile Include="test\test_file_format.py" />
-    <Compile Include="test\test_headers.py" />
-    <Compile Include="test\test_import_job.py" />
-    <Compile Include="test\test_job.py" />
-    <Compile Include="test\test_jobs_api.py" />
-    <Compile Include="test\test_job_dependency.py" />
-    <Compile Include="test\test_job_list_response.py" />
-    <Compile Include="test\test_job_request.py" />
-    <Compile Include="test\test_job_response.py" />
-    <Compile Include="test\test_query_job.py" />
-    <Compile Include="test\test_queue.py" />
-    <Compile Include="test\test_queue_list_response.py" />
-    <Compile Include="test\test_queue_response.py" />
-    <Compile Include="test\test_rest_error.py" />
+    <Compile Include="test\test_auth_api.py" />
     <Compile Include="test\test_schema_api.py" />
-    <Compile Include="test\test_source_table.py" />
-    <Compile Include="test\test_sql_script_job.py" />
-    <Compile Include="test\test_table.py" />
-    <Compile Include="test\test_table_list_response.py" />
-    <Compile Include="test\test_view.py" />
-    <Compile Include="test\test_view_list_response.py" />
     <Compile Include="test\__init__.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

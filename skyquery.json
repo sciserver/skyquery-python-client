@@ -17,6 +17,366 @@
     "application/json"
   ],
   "paths": {
+    "V1/Auth.svc/": {
+      "post": {
+        "summary": "Authenticates a user based on the submitted credentials.",
+        "operationId": "Authenticate",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "authRequest",
+            "in": "body",
+            "description": null,
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AuthRequest"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/me": {
+      "get": {
+        "summary": "Returns information on the authenticated user.",
+        "operationId": "GetCurrentUser",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/me/roles": {
+      "get": {
+        "summary": "Returns information on group membership.",
+        "operationId": "GetCurrentUserRoles",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserMembershipListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/me/roles/{groupName}": {
+      "get": {
+        "summary": "Returns information on group membership.",
+        "operationId": "GetCurrentUserRoleInGroup",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "groupName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserMembershipResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/users/{name}": {
+      "get": {
+        "summary": "",
+        "operationId": "GetUser",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/users/{name}/roles": {
+      "get": {
+        "summary": "",
+        "operationId": "GetUserRoles",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserMembershipListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/users/{name}/roles/{groupName}": {
+      "get": {
+        "summary": "Returns information on group membership.",
+        "operationId": "GetUserRoleInGroup",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          },
+          {
+            "name": "groupName",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserMembershipResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/groups": {
+      "get": {
+        "summary": "",
+        "operationId": "FindUserGroups",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserGroupListResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/groups/{name}": {
+      "get": {
+        "summary": "",
+        "operationId": "GetUserGroup",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserGroupResponse"
+            }
+          }
+        }
+      }
+    },
+    "V1/Auth.svc/groups/{name}/members": {
+      "get": {
+        "summary": "",
+        "operationId": "GetUserGroupMembers",
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": null,
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/RestError"
+            }
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserMembershipListResponse"
+            }
+          }
+        }
+      }
+    },
     "V1/Schema.svc/datasets": {
       "get": {
         "summary": "Returns a list of all available datasets.",
@@ -768,6 +1128,132 @@
     }
   },
   "definitions": {
+    "Headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "format": "string"
+      }
+    },
+    "Credentials": {
+      "properties": {
+        "username": {
+          "type": "string",
+          "format": "string"
+        },
+        "password": {
+          "type": "string",
+          "format": "string"
+        },
+        "headers": {
+          "$ref": "#/definitions/Headers"
+        }
+      }
+    },
+    "AuthRequest": {
+      "properties": {
+        "auth": {
+          "$ref": "#/definitions/Credentials"
+        }
+      }
+    },
+    "User": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "isAuthenticated": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "UserResponse": {
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "UserMembership": {
+      "properties": {
+        "user": {
+          "type": "string",
+          "format": "string"
+        },
+        "group": {
+          "type": "string",
+          "format": "string"
+        },
+        "role": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "UserMembershipListResponse": {
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserMembership"
+          }
+        }
+      }
+    },
+    "UserMembershipResponse": {
+      "properties": {
+        "role": {
+          "$ref": "#/definitions/UserMembership"
+        }
+      }
+    },
+    "UserGroup": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "UserGroupListResponse": {
+      "properties": {
+        "userGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserGroup"
+          }
+        }
+      }
+    },
+    "UserGroupResponse": {
+      "properties": {
+        "group": {
+          "$ref": "#/definitions/UserGroup"
+        }
+      }
+    },
+    "RestError": {
+      "properties": {
+        "Type": {
+          "type": "string",
+          "format": "string"
+        },
+        "Message": {
+          "type": "string",
+          "format": "string"
+        },
+        "StackTrace": {
+          "type": "string",
+          "format": "string"
+        },
+        "LogEventID": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
     "Dataset": {
       "properties": {
         "name": {
@@ -916,26 +1402,6 @@
         }
       }
     },
-    "RestError": {
-      "properties": {
-        "Type": {
-          "type": "string",
-          "format": "string"
-        },
-        "Message": {
-          "type": "string",
-          "format": "string"
-        },
-        "StackTrace": {
-          "type": "string",
-          "format": "string"
-        },
-        "LogEventID": {
-          "type": "string",
-          "format": "string"
-        }
-      }
-    },
     "Queue": {
       "properties": {
         "name": {
@@ -1039,28 +1505,6 @@
           "items": {
             "$ref": "#/definitions/JobDependency"
           }
-        }
-      }
-    },
-    "Headers": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "string",
-        "format": "string"
-      }
-    },
-    "Credentials": {
-      "properties": {
-        "username": {
-          "type": "string",
-          "format": "string"
-        },
-        "password": {
-          "type": "string",
-          "format": "string"
-        },
-        "headers": {
-          "$ref": "#/definitions/Headers"
         }
       }
     },

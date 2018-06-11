@@ -51,17 +51,15 @@ import skyquery
 from skyquery.rest import ApiException
 from pprint import pprint
 # create an instance of the API class
-api_instance = skyquery.DataApi()
-dataset_name = 'dataset_name_example' # str | null
-table_name = 'table_name_example' # str | null
-top = 'top_example' # str | null (optional)
+api_instance = skyquery.AuthApi()
+auth_request = skyquery.AuthRequest() # AuthRequest | null
 
 try:
-    # Downloads a table in any supported data format.
-    api_response = api_instance.download_table(dataset_name, table_name, top=top)
+    # Authenticates a user based on the submitted credentials.
+    api_response = api_instance.authenticate(auth_request)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DataApi->download_table: %s\n" % e)
+    print("Exception when calling AuthApi->authenticate: %s\n" % e)
 
 ```
 
@@ -71,6 +69,16 @@ All URIs are relative to *http://localhost/dobos/skyquery-v1.4/Api/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthApi* | [**authenticate**](docs/AuthApi.md#authenticate) | **POST** V1/Auth.svc/ | Authenticates a user based on the submitted credentials.
+*AuthApi* | [**find_user_groups**](docs/AuthApi.md#find_user_groups) | **GET** V1/Auth.svc/groups | 
+*AuthApi* | [**get_current_user**](docs/AuthApi.md#get_current_user) | **GET** V1/Auth.svc/me | Returns information on the authenticated user.
+*AuthApi* | [**get_current_user_role_in_group**](docs/AuthApi.md#get_current_user_role_in_group) | **GET** V1/Auth.svc/me/roles/{groupName} | Returns information on group membership.
+*AuthApi* | [**get_current_user_roles**](docs/AuthApi.md#get_current_user_roles) | **GET** V1/Auth.svc/me/roles | Returns information on group membership.
+*AuthApi* | [**get_user**](docs/AuthApi.md#get_user) | **GET** V1/Auth.svc/users/{name} | 
+*AuthApi* | [**get_user_group**](docs/AuthApi.md#get_user_group) | **GET** V1/Auth.svc/groups/{name} | 
+*AuthApi* | [**get_user_group_members**](docs/AuthApi.md#get_user_group_members) | **GET** V1/Auth.svc/groups/{name}/members | 
+*AuthApi* | [**get_user_role_in_group**](docs/AuthApi.md#get_user_role_in_group) | **GET** V1/Auth.svc/users/{name}/roles/{groupName} | Returns information on group membership.
+*AuthApi* | [**get_user_roles**](docs/AuthApi.md#get_user_roles) | **GET** V1/Auth.svc/users/{name}/roles | 
 *DataApi* | [**download_table**](docs/DataApi.md#download_table) | **GET** V1/Data.svc/{datasetName}/{tableName} | Downloads a table in any supported data format.
 *DataApi* | [**drop_table**](docs/DataApi.md#drop_table) | **DELETE** V1/Data.svc/{datasetName}/{tableName} | Drops a table from the user database.
 *DataApi* | [**upload_table**](docs/DataApi.md#upload_table) | **PUT** V1/Data.svc/{datasetName}/{tableName} | Uploads a table to a user database.
@@ -92,6 +100,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AuthRequest](docs/AuthRequest.md)
  - [Column](docs/Column.md)
  - [ColumnListResponse](docs/ColumnListResponse.md)
  - [CopyJob](docs/CopyJob.md)
@@ -117,6 +126,14 @@ Class | Method | HTTP request | Description
  - [SqlScriptJob](docs/SqlScriptJob.md)
  - [Table](docs/Table.md)
  - [TableListResponse](docs/TableListResponse.md)
+ - [User](docs/User.md)
+ - [UserGroup](docs/UserGroup.md)
+ - [UserGroupListResponse](docs/UserGroupListResponse.md)
+ - [UserGroupResponse](docs/UserGroupResponse.md)
+ - [UserMembership](docs/UserMembership.md)
+ - [UserMembershipListResponse](docs/UserMembershipListResponse.md)
+ - [UserMembershipResponse](docs/UserMembershipResponse.md)
+ - [UserResponse](docs/UserResponse.md)
  - [View](docs/View.md)
  - [ViewListResponse](docs/ViewListResponse.md)
 
