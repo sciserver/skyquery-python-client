@@ -123,6 +123,8 @@
     <Compile Include="skyquery\sciserver_client.py" />
     <Compile Include="skyquery\__init__.py" />
     <Compile Include="test\test_auth_api.py" />
+    <Compile Include="test\test_data_api.py" />
+    <Compile Include="test\test_jobs_api.py" />
     <Compile Include="test\test_schema_api.py" />
     <Compile Include="test\__init__.py" />
   </ItemGroup>
