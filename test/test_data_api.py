@@ -16,6 +16,8 @@ from __future__ import absolute_import
 import unittest
 
 import skyquery
+from skyquery import Configuration
+from skyquery.sciserver_client import SciServerClient
 from skyquery.api.data_api import DataApi  # noqa: E501
 from skyquery.rest import ApiException
 
@@ -24,7 +26,13 @@ class TestDataApi(unittest.TestCase):
     """DataApi unit test stubs"""
 
     def setUp(self):
-        self.api = skyquery.api.data_api.DataApi()  # noqa: E501
+        self.configuration = Configuration()
+        self.configuration.host = "http://localhost/dobos/skyquery-v1.4/Api/"
+        self.configuration.proxy = 'http://localhost:8888'
+        self.ssclient = SciServerClient(configuration=self.configuration)
+        self.auth = skyquery.api.auth_api.AuthApi(self.ssclient)
+        self.auth.authenticate({"auth": {"username": "test", "password": "almafa"}})
+        self.api = skyquery.api.data_api.DataApi(self.ssclient)
 
     def tearDown(self):
         pass
@@ -34,7 +42,7 @@ class TestDataApi(unittest.TestCase):
 
         Downloads a table in any supported data format.  # noqa: E501
         """
-        pass
+        self.api.download_table("MYDB", "MyCatalog", _preload_content=False)
 
     def test_drop_table(self):
         """Test case for drop_table
