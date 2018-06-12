@@ -1,15 +1,15 @@
 # skyquery.JobsApi
 
-All URIs are relative to *http://localhost/dobos/skyquery-v1.4/Api/*
+All URIs are relative to *http://localhost/dobos/skyquery-v1.4/Api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel_job**](JobsApi.md#cancel_job) | **DELETE** V1/Jobs.svc/jobs/{guid} | Cancels a single job.
-[**get_job**](JobsApi.md#get_job) | **GET** V1/Jobs.svc/jobs/{guid} | Returns a single job.
-[**get_queue**](JobsApi.md#get_queue) | **GET** V1/Jobs.svc/queues/{queue} | Returns information about a job queue.
-[**list_jobs**](JobsApi.md#list_jobs) | **GET** V1/Jobs.svc/queues/{queue}/jobs | Lists the jobs in the queue in descending order by submission time. Only jobs of the authenticated user are listed.
-[**list_queues**](JobsApi.md#list_queues) | **GET** V1/Jobs.svc/queues | Returns a list of all available job queues.
-[**submit_job**](JobsApi.md#submit_job) | **POST** V1/Jobs.svc/queues/{queue}/jobs | Submits a new job of any kind.
+[**cancel_job**](JobsApi.md#cancel_job) | **DELETE** /V1/Jobs.svc/jobs/{guid} | Cancels a single job.
+[**get_job**](JobsApi.md#get_job) | **GET** /V1/Jobs.svc/jobs/{guid} | Returns a single job.
+[**get_queue**](JobsApi.md#get_queue) | **GET** /V1/Jobs.svc/queues/{queue} | Returns information about a job queue.
+[**list_jobs**](JobsApi.md#list_jobs) | **GET** /V1/Jobs.svc/queues/{queue}/jobs | Lists the jobs in the queue in descending order by submission time. Only jobs of the authenticated user are listed.
+[**list_queues**](JobsApi.md#list_queues) | **GET** /V1/Jobs.svc/queues | Returns a list of all available job queues.
+[**submit_job**](JobsApi.md#submit_job) | **POST** /V1/Jobs.svc/queues/{queue}/jobs | Submits a new job of any kind.
 
 
 # **cancel_job**
@@ -27,7 +27,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.JobsApi()
-guid = 'guid_example' # str | null
+guid = 'guid_example' # str | 
 
 try:
     # Cancels a single job.
@@ -41,7 +41,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **guid** | **str**| null | 
+ **guid** | **str**|  | 
 
 ### Return type
 
@@ -54,7 +54,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -73,7 +73,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.JobsApi()
-guid = 'guid_example' # str | null
+guid = 'guid_example' # str | 
 
 try:
     # Returns a single job.
@@ -87,7 +87,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **guid** | **str**| null | 
+ **guid** | **str**|  | 
 
 ### Return type
 
@@ -100,7 +100,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -119,7 +119,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.JobsApi()
-queue = 'queue_example' # str | null
+queue = 'queue_example' # str | 
 
 try:
     # Returns information about a job queue.
@@ -133,7 +133,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **queue** | **str**| null | 
+ **queue** | **str**|  | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -165,10 +165,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.JobsApi()
-queue = 'queue_example' # str | null
-type = 'type_example' # str | null (optional)
-_from = '_from_example' # str | null (optional)
-max = 'max_example' # str | null (optional)
+queue = 'queue_example' # str | 
+type = 'type_example' # str |  (optional)
+_from = '_from_example' # str |  (optional)
+max = 'max_example' # str |  (optional)
 
 try:
     # Lists the jobs in the queue in descending order by submission time. Only jobs of the authenticated user are listed.
@@ -182,10 +182,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **queue** | **str**| null | 
- **type** | **str**| null | [optional] 
- **_from** | **str**| null | [optional] 
- **max** | **str**| null | [optional] 
+ **queue** | **str**|  | 
+ **type** | **str**|  | [optional] 
+ **_from** | **str**|  | [optional] 
+ **max** | **str**|  | [optional] 
 
 ### Return type
 
@@ -198,7 +198,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -240,7 +240,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,8 +259,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.JobsApi()
-queue = 'queue_example' # str | null
-job = skyquery.JobRequest() # JobRequest | null
+queue = 'queue_example' # str | 
+job = skyquery.JobRequest() # JobRequest | 
 
 try:
     # Submits a new job of any kind.
@@ -274,8 +274,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **queue** | **str**| null | 
- **job** | [**JobRequest**](JobRequest.md)| null | 
+ **queue** | **str**|  | 
+ **job** | [**JobRequest**](JobRequest.md)|  | 
 
 ### Return type
 
@@ -287,8 +287,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

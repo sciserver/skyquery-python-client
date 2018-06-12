@@ -1,38 +1,28 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": null,
-    "title": null
+    "version": "1.0",
+    "title": "SkyQuery REST API"
   },
   "host": "localhost",
-  "basePath": "/dobos/skyquery-v1.4/Api/",
+  "basePath": "/dobos/skyquery-v1.4/Api",
   "schemes": [
     "http",
     "https"
   ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
   "paths": {
-    "V1/Auth.svc/": {
+    "/V1/Auth.svc/": {
       "post": {
         "summary": "Authenticates a user based on the submitted credentials.",
         "operationId": "Authenticate",
         "tags": [
           "Auth"
         ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
         "parameters": [
           {
-            "name": "authRequest",
             "in": "body",
-            "description": null,
+            "name": "authRequest",
+            "description": "",
             "required": true,
             "schema": {
               "$ref": "#/definitions/AuthRequest"
@@ -46,20 +36,20 @@
               "$ref": "#/definitions/RestError"
             }
           }
-        }
+        },
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/me": {
+    "/V1/Auth.svc/me": {
       "get": {
         "summary": "Returns information on the authenticated user.",
         "operationId": "GetCurrentUser",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [],
         "responses": {
           "default": {
@@ -74,20 +64,20 @@
               "$ref": "#/definitions/UserResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/me/roles": {
+    "/V1/Auth.svc/me/roles": {
       "get": {
         "summary": "Returns information on group membership.",
         "operationId": "GetCurrentUserRoles",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [],
         "responses": {
           "default": {
@@ -102,30 +92,28 @@
               "$ref": "#/definitions/UserMembershipListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/me/roles/{groupName}": {
+    "/V1/Auth.svc/me/roles/{groupName}": {
       "get": {
         "summary": "Returns information on group membership.",
         "operationId": "GetCurrentUserRoleInGroup",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "groupName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -141,30 +129,28 @@
               "$ref": "#/definitions/UserMembershipResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/users/{name}": {
+    "/V1/Auth.svc/users/{name}": {
       "get": {
         "summary": "",
         "operationId": "GetUser",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -180,30 +166,28 @@
               "$ref": "#/definitions/UserResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/users/{name}/roles": {
+    "/V1/Auth.svc/users/{name}/roles": {
       "get": {
         "summary": "",
         "operationId": "GetUserRoles",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -219,40 +203,36 @@
               "$ref": "#/definitions/UserMembershipListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/users/{name}/roles/{groupName}": {
+    "/V1/Auth.svc/users/{name}/roles/{groupName}": {
       "get": {
         "summary": "Returns information on group membership.",
         "operationId": "GetUserRoleInGroup",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "groupName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -268,19 +248,19 @@
               "$ref": "#/definitions/UserMembershipResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/groups": {
+    "/V1/Auth.svc/groups": {
       "get": {
         "summary": "",
         "operationId": "FindUserGroups",
         "tags": [
           "Auth"
-        ],
-        "consumes": [],
-        "produces": [
-          "application/json"
         ],
         "parameters": [],
         "responses": {
@@ -296,30 +276,28 @@
               "$ref": "#/definitions/UserGroupListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/groups/{name}": {
+    "/V1/Auth.svc/groups/{name}": {
       "get": {
         "summary": "",
         "operationId": "GetUserGroup",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -335,30 +313,28 @@
               "$ref": "#/definitions/UserGroupResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Auth.svc/groups/{name}/members": {
+    "/V1/Auth.svc/groups/{name}/members": {
       "get": {
         "summary": "",
         "operationId": "GetUserGroupMembers",
         "tags": [
           "Auth"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "name",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -374,19 +350,19 @@
               "$ref": "#/definitions/UserMembershipListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets": {
+    "/V1/Schema.svc/datasets": {
       "get": {
         "summary": "Returns a list of all available datasets.",
         "operationId": "ListDatasets",
         "tags": [
           "Schema"
-        ],
-        "consumes": [],
-        "produces": [
-          "application/json"
         ],
         "parameters": [],
         "responses": {
@@ -402,30 +378,28 @@
               "$ref": "#/definitions/DatasetListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}": {
+    "/V1/Schema.svc/datasets/{datasetName}": {
       "get": {
         "summary": "Returns information about a single dataset",
         "operationId": "GetDataset",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -441,30 +415,28 @@
               "$ref": "#/definitions/Dataset"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/tables": {
+    "/V1/Schema.svc/datasets/{datasetName}/tables": {
       "get": {
         "summary": "Returns a list of the tables of a dataset.",
         "operationId": "ListTables",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -480,40 +452,36 @@
               "$ref": "#/definitions/TableListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/tables/{tableName}": {
+    "/V1/Schema.svc/datasets/{datasetName}/tables/{tableName}": {
       "get": {
         "summary": "Returns information about a single table.",
         "operationId": "GetTable",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "tableName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -529,40 +497,36 @@
               "$ref": "#/definitions/Table"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/tables/{tableName}/columns": {
+    "/V1/Schema.svc/datasets/{datasetName}/tables/{tableName}/columns": {
       "get": {
         "summary": "Returns the list of columns of a table",
         "operationId": "ListTableColumns",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "tableName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -578,30 +542,28 @@
               "$ref": "#/definitions/ColumnListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/views": {
+    "/V1/Schema.svc/datasets/{datasetName}/views": {
       "get": {
         "summary": "Returns a list of the views of a dataset.",
         "operationId": "ListViews",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -617,40 +579,36 @@
               "$ref": "#/definitions/ViewListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/views/{viewName}": {
+    "/V1/Schema.svc/datasets/{datasetName}/views/{viewName}": {
       "get": {
         "summary": "Returns information about a single view.",
         "operationId": "GetView",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "viewName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -666,40 +624,36 @@
               "$ref": "#/definitions/View"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Schema.svc/datasets/{datasetName}/views/{viewName}/columns": {
+    "/V1/Schema.svc/datasets/{datasetName}/views/{viewName}/columns": {
       "get": {
         "summary": "Returns the list of columns of a view",
         "operationId": "ListViewColumns",
         "tags": [
           "Schema"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "viewName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -715,19 +669,19 @@
               "$ref": "#/definitions/ColumnListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Jobs.svc/queues": {
+    "/V1/Jobs.svc/queues": {
       "get": {
         "summary": "Returns a list of all available job queues.",
         "operationId": "ListQueues",
         "tags": [
           "Jobs"
-        ],
-        "consumes": [],
-        "produces": [
-          "application/json"
         ],
         "parameters": [],
         "responses": {
@@ -743,30 +697,28 @@
               "$ref": "#/definitions/QueueListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Jobs.svc/queues/{queue}": {
+    "/V1/Jobs.svc/queues/{queue}": {
       "get": {
         "summary": "Returns information about a job queue.",
         "operationId": "GetQueue",
         "tags": [
           "Jobs"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "queue",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -782,60 +734,52 @@
               "$ref": "#/definitions/QueueResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Jobs.svc/queues/{queue}/jobs": {
+    "/V1/Jobs.svc/queues/{queue}/jobs": {
       "get": {
         "summary": "Lists the jobs in the queue in descending order by submission time. Only jobs of the authenticated user are listed.",
         "operationId": "ListJobs",
         "tags": [
           "Jobs"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "queue",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "type",
             "in": "query",
-            "description": null,
+            "description": "",
             "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "from",
             "in": "query",
-            "description": null,
+            "description": "",
             "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "max",
             "in": "query",
-            "description": null,
+            "description": "",
             "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -851,7 +795,11 @@
               "$ref": "#/definitions/JobListResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       },
       "post": {
         "summary": "Submits a new job of any kind.",
@@ -859,27 +807,19 @@
         "tags": [
           "Jobs"
         ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "queue",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
-            "name": "job",
             "in": "body",
-            "description": null,
+            "name": "job",
+            "description": "",
             "required": true,
             "schema": {
               "$ref": "#/definitions/JobRequest"
@@ -899,30 +839,32 @@
               "$ref": "#/definitions/JobResponse"
             }
           }
-        }
+        },
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Jobs.svc/jobs/{guid}": {
+    "/V1/Jobs.svc/jobs/{guid}": {
       "get": {
         "summary": "Returns a single job.",
         "operationId": "GetJob",
         "tags": [
           "Jobs"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "guid",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -938,7 +880,11 @@
               "$ref": "#/definitions/JobResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       },
       "delete": {
         "summary": "Cancels a single job.",
@@ -946,20 +892,14 @@
         "tags": [
           "Jobs"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "guid",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {
@@ -975,50 +915,53 @@
               "$ref": "#/definitions/JobResponse"
             }
           }
-        }
+        },
+        "produces": [
+          "application/json",
+          "application/xml"
+        ]
       }
     },
-    "V1/Data.svc/{datasetName}/{tableName}": {
+    "/V1/Data.svc/{datasetName}/{tableName}": {
       "get": {
         "summary": "Downloads a table in any supported data format.",
         "operationId": "DownloadTable",
         "tags": [
           "Data"
         ],
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "tableName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "top",
             "in": "query",
-            "description": null,
+            "description": "",
             "required": false,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "header",
+            "name": "Accept",
+            "description": "File format mime type.",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "application/json"
           }
         ],
         "responses": {
@@ -1029,10 +972,7 @@
             }
           },
           "200": {
-            "description": "",
-            "schema": {
-              "type": "file"
-            }
+            "description": ""
           }
         }
       },
@@ -1042,39 +982,37 @@
         "tags": [
           "Data"
         ],
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "tableName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
-            "name": "data",
-            "in": "body",
-            "description": null,
+            "in": "header",
+            "name": "Content-Type",
+            "description": "File format mime type.",
+            "default": "application/json",
             "required": true,
-            "schema": {
-              "type": "file"
-            }
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "in": "body",
+            "name": "data",
+            "description": "",
+            "required": true
           }
         ],
         "responses": {
@@ -1092,28 +1030,22 @@
         "tags": [
           "Data"
         ],
-        "consumes": [],
-        "produces": [],
         "parameters": [
           {
             "name": "datasetName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           },
           {
             "name": "tableName",
             "in": "path",
-            "description": null,
+            "description": "",
             "required": true,
-            "schema": {
-              "type": "string",
-              "format": "string"
-            }
+            "type": "string",
+            "format": "string"
           }
         ],
         "responses": {

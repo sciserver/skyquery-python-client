@@ -1,19 +1,19 @@
 # skyquery.AuthApi
 
-All URIs are relative to *http://localhost/dobos/skyquery-v1.4/Api/*
+All URIs are relative to *http://localhost/dobos/skyquery-v1.4/Api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticate**](AuthApi.md#authenticate) | **POST** V1/Auth.svc/ | Authenticates a user based on the submitted credentials.
-[**find_user_groups**](AuthApi.md#find_user_groups) | **GET** V1/Auth.svc/groups | 
-[**get_current_user**](AuthApi.md#get_current_user) | **GET** V1/Auth.svc/me | Returns information on the authenticated user.
-[**get_current_user_role_in_group**](AuthApi.md#get_current_user_role_in_group) | **GET** V1/Auth.svc/me/roles/{groupName} | Returns information on group membership.
-[**get_current_user_roles**](AuthApi.md#get_current_user_roles) | **GET** V1/Auth.svc/me/roles | Returns information on group membership.
-[**get_user**](AuthApi.md#get_user) | **GET** V1/Auth.svc/users/{name} | 
-[**get_user_group**](AuthApi.md#get_user_group) | **GET** V1/Auth.svc/groups/{name} | 
-[**get_user_group_members**](AuthApi.md#get_user_group_members) | **GET** V1/Auth.svc/groups/{name}/members | 
-[**get_user_role_in_group**](AuthApi.md#get_user_role_in_group) | **GET** V1/Auth.svc/users/{name}/roles/{groupName} | Returns information on group membership.
-[**get_user_roles**](AuthApi.md#get_user_roles) | **GET** V1/Auth.svc/users/{name}/roles | 
+[**authenticate**](AuthApi.md#authenticate) | **POST** /V1/Auth.svc/ | Authenticates a user based on the submitted credentials.
+[**find_user_groups**](AuthApi.md#find_user_groups) | **GET** /V1/Auth.svc/groups | 
+[**get_current_user**](AuthApi.md#get_current_user) | **GET** /V1/Auth.svc/me | Returns information on the authenticated user.
+[**get_current_user_role_in_group**](AuthApi.md#get_current_user_role_in_group) | **GET** /V1/Auth.svc/me/roles/{groupName} | Returns information on group membership.
+[**get_current_user_roles**](AuthApi.md#get_current_user_roles) | **GET** /V1/Auth.svc/me/roles | Returns information on group membership.
+[**get_user**](AuthApi.md#get_user) | **GET** /V1/Auth.svc/users/{name} | 
+[**get_user_group**](AuthApi.md#get_user_group) | **GET** /V1/Auth.svc/groups/{name} | 
+[**get_user_group_members**](AuthApi.md#get_user_group_members) | **GET** /V1/Auth.svc/groups/{name}/members | 
+[**get_user_role_in_group**](AuthApi.md#get_user_role_in_group) | **GET** /V1/Auth.svc/users/{name}/roles/{groupName} | Returns information on group membership.
+[**get_user_roles**](AuthApi.md#get_user_roles) | **GET** /V1/Auth.svc/users/{name}/roles | 
 
 
 # **authenticate**
@@ -31,7 +31,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-auth_request = skyquery.AuthRequest() # AuthRequest | null
+auth_request = skyquery.AuthRequest() # AuthRequest | 
 
 try:
     # Authenticates a user based on the submitted credentials.
@@ -45,7 +45,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auth_request** | [**AuthRequest**](AuthRequest.md)| null | 
+ **auth_request** | [**AuthRequest**](AuthRequest.md)|  | 
 
 ### Return type
 
@@ -57,7 +57,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, application/xml
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -100,7 +100,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -142,7 +142,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -161,7 +161,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-group_name = 'group_name_example' # str | null
+group_name = 'group_name_example' # str | 
 
 try:
     # Returns information on group membership.
@@ -175,7 +175,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **group_name** | **str**| null | 
+ **group_name** | **str**|  | 
 
 ### Return type
 
@@ -188,7 +188,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -230,7 +230,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -249,7 +249,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-name = 'name_example' # str | null
+name = 'name_example' # str | 
 
 try:
     # 
@@ -263,7 +263,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| null | 
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -276,7 +276,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -295,7 +295,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-name = 'name_example' # str | null
+name = 'name_example' # str | 
 
 try:
     # 
@@ -309,7 +309,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| null | 
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -322,7 +322,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -341,7 +341,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-name = 'name_example' # str | null
+name = 'name_example' # str | 
 
 try:
     # 
@@ -355,7 +355,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| null | 
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -368,7 +368,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -387,8 +387,8 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-name = 'name_example' # str | null
-group_name = 'group_name_example' # str | null
+name = 'name_example' # str | 
+group_name = 'group_name_example' # str | 
 
 try:
     # Returns information on group membership.
@@ -402,8 +402,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| null | 
- **group_name** | **str**| null | 
+ **name** | **str**|  | 
+ **group_name** | **str**|  | 
 
 ### Return type
 
@@ -416,7 +416,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -435,7 +435,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = skyquery.AuthApi()
-name = 'name_example' # str | null
+name = 'name_example' # str | 
 
 try:
     # 
@@ -449,7 +449,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| null | 
+ **name** | **str**|  | 
 
 ### Return type
 
@@ -462,7 +462,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -42,7 +42,8 @@ class TestDataApi(unittest.TestCase):
 
         Downloads a table in any supported data format.  # noqa: E501
         """
-        self.api.download_table("MYDB", "MyCatalog", _preload_content=False)
+        res = self.api.download_table("MYDB", "MyCatalog", accept="text/csv", _preload_content=False)
+        self.assertEqual(res, "0")
 
     def test_drop_table(self):
         """Test case for drop_table
